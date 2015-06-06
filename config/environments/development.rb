@@ -34,4 +34,19 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'localhost', port: 5000 }
+  # A dummy setup for development - no deliveries, but logged
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.live.com",
+    :port                 => 587,
+    :user_name            => 'lifuyuan33@hotmail.com',
+    :password             => 'Levine200534',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
+  #config.action_mailer.perform_deliveries = false
+  config.action_mailer.default :charset => "utf-8"
 end
