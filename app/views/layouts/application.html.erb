@@ -20,52 +20,81 @@
 	<div class="wrap">
 		<div class="header">
 			<div class="logo">
-				<a href="index.html"><img src="/assets/logo.png" alt=""></a>
+				<a href="/"><img src="/assets/logo.png" alt=""></a>
 			</div>
 			<div class="h_right">
 				<!--start menu -->
 				<ul class="menu">
-					<li><a href="index.html">hotel</a></li> |
-					<li><a href="rooms.html">rooms & suits</a></li> |
-					<li><a href="reservation.html">reservation</a></li> |
-					<li><a href="activities.html">activities</a></li> |
-					<li class="active"><a href="contact.html">contact</a></li>
+					<li>
+						<% if user_signed_in? %>
+          		<%= link_to('注销', destroy_user_session_path, :method => :delete) %>
+          	<% else %>
+          		<%= link_to('管理员登录', new_user_session_path)  %>
+          	<% end %>
+					</li>
 					<div class="clear"></div>
 				</ul>
-				<!-- start profile_details -->
-						<form class="style-1 drp_dwn">
-							<div class="row">
-								<div class="grid_3 columns">
-									<select class="custom-select" id="select-1">
-										<option selected="selected">EN</option>
-										<option>USA</option>
-										<option>AUS</option>
-										<option>UK</option>
-										<option>IND</option>
-									</select>
-								</div>		
-							</div>		
-						</form>
 			</div>
 			<div class="clear"></div>
-			<div class="top-nav">
-			<nav class="clearfix">
-					<ul>
-					<li class="active"><a href="index.html">hotel</a></li> 
-					<li><a href="rooms.html">rooms & suits</a></li> 
-					<li><a href="reservation.html">reservation</a></li> 
-					<li><a href="activities.html">activities</a></li> 
-					<li><a href="contact.html">contact</a></li>
-					</ul>
-					<a href="#" id="pull">Menu</a>
-				</nav>
-			</div>
 		</div>
 	</div>
 </div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-
+<!-- end header -->
+<!--start main -->
+<div class="main_bg">
+	<div class="wrap">
+		<div class="main">
+			<div class="contact">				
+				<div class="contact_left">
+					<div class="sidebar">
+					 	<div class="date_btn">
+							<form>
+								<input type="submit" value="牛题后台管理" style="width: 82px;">
+							</form>
+						</div>
+						<ul class="s_nav">
+							<li><a href="#">创建题目</a></li>
+							<li><a href="#">已创建题目</a></li>
+							<li><a href="#">模拟做题</a></li>
+							<% if user_signed_in? %>
+							<li><a href="#">修改密码</a></li>
+							<li><a href="#">注销</a></li>
+							<% else %>
+							<li><a href="#">管理员登录</a></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>				
+				<div class="contact_right">
+				  <div class="contact-form">
+				  	<% if notice %>
+    					<div class="alert alert-success">
+      					<%= notice  %>
+    					</div>
+  					<% end %>
+  					<% if alert %>
+    					<div class="alert alert-warning">
+      					<%= alert  %>
+    					</div>
+  					<% end %>
+				    <%= yield %>
+				  </div>
+  			</div>		
+  			<div class="clear"></div>		
+		  </div>
+		</div>
+	</div>
+</div>
+<!--end main -->
+<div class="footer_bg">
+	<div class="wrap">
+		<div class="footer">
+			<div class="copy">
+				<p class="link"><span>Copyright &copy; 2015.NiuTi All rights reserved.</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
