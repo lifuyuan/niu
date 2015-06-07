@@ -2,7 +2,7 @@
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+      <h2>因为如下<%=@question.errors.count %> 个错误，导致题目创建失败:</h2>
 
       <ul>
       <% @question.errors.full_messages.each do |message| %>
@@ -19,9 +19,7 @@
     
 	<div class="book_date btm">
 		<h4>选择题目日期:</h4>
-		<form>
 		<%= f.text_field :show_date, class: "date" %>
-		</form>
 	</div>
 
   <div>
@@ -33,7 +31,7 @@
     <%= f.text_field :answer, placeholder: "请将答案按顺序用竖线“|”分割，例如：iver|and" %>
   </div>
   <div>
-    <%= f.submit "创建" %>
+    <%= f.submit :创建 %>
   </div>
 <% end %>
 

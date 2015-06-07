@@ -1,0 +1,41 @@
+<h1>Listing learnings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Difficulty</th>
+      <th>Learning date</th>
+      <th>Answer</th>
+      <th>Answer number</th>
+      <th>Right answer number</th>
+      <th>Time spent</th>
+      <th>Score</th>
+      <th>Is favorite</th>
+      <th>Question</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @learnings.each do |learning| %>
+      <tr>
+        <td><%= learning.difficulty %></td>
+        <td><%= learning.learning_date %></td>
+        <td><%= learning.answer %></td>
+        <td><%= learning.answer_number %></td>
+        <td><%= learning.right_answer_number %></td>
+        <td><%= learning.time_spent %></td>
+        <td><%= learning.score %></td>
+        <td><%= learning.is_favorite %></td>
+        <td><%= learning.question_id %></td>
+        <td><%= link_to 'Show', learning %></td>
+        <td><%= link_to 'Edit', edit_learning_path(learning) %></td>
+        <td><%= link_to 'Destroy', learning, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Learning', new_learning_path %>

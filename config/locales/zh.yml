@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 zh:
-  hello: "Hello world"
+  mongoid:
+    errors:
+      models:
+        question:
+          attributes:
+            difficulty:
+              blank: '难度等级不能为空'
+            show_date:
+              blank: '题目日期不能为空'
+            content:
+              blank: '题目内容不能为空'
+            answer:
+              blank: '答案不能为空'
+
+

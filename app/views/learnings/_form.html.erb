@@ -1,0 +1,7 @@
+<h3>模拟做题</h3>
+<%= form_for([@question, @learning]) do |f| %>
+  <p><%=@question.to_html.html_safe%></p>
+  <div>
+    <%= f.submit :提交 %>
+  </div>
+<% end %>

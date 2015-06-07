@@ -39,6 +39,7 @@ class User
   field :score, type: BigDecimal
 
   belongs_to :role
+  has_many :learnings, :dependent => :destroy
 
   def role?(role)
     self.role.name == role.to_s
