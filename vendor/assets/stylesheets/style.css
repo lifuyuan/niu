@@ -1156,7 +1156,7 @@ span.next:hover {
 }
 .alert-success {
   color: #fff;
-  background-color: #35c3d9;
+  background-color: #32A2E3;
   border-color: #d6e9c6;
 }
 .alert-success hr {
@@ -1167,7 +1167,7 @@ span.next:hover {
 }
 .alert-info {
   color: #fff;
-  background-color: #228AC6;
+  background-color: #32A2E3;
   border-color: #bce8f1;
 }
 .alert-info hr {
@@ -1178,7 +1178,7 @@ span.next:hover {
 }
 .alert-warning {
   color: #c0392b;
-  background-color: #35c3d9;
+  background-color: #32A2E3;
   border-color: #faebcc;
 }
 .alert-warning hr {
