@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    respond_with(@question)
+    redirect_to "/questions/show_questions"
   end
 
   def new
