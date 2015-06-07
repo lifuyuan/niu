@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from Exception do |exception|
   	logger.error "发生异常，跳转，异常原因为：#{exception.message}"
     logger.error exception.backtrace.inspect
-    redirect_to spree.root_path, notice: "系统异常"
+    redirect_to root_path, notice: "系统异常"
   end
 
   protected

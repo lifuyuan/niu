@@ -16,4 +16,8 @@
 //= require_tree .
 //= require jquery.min
 //= require jquery-ui
-//= require jquery-ui.min
+
+
+$(function() {
+  $( "#datepicker,#question_show_date" ).datepicker();
+});

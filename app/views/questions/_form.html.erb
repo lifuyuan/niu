@@ -1,4 +1,10 @@
-<div class="contact-form">
+<script src="/assets/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#datepicker,#question_show_date" ).datepicker();
+  });
+</script>
+<h3>创建题目</h3>
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -12,24 +18,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :difficulty %><br>
-    <%= f.text_field :difficulty %>
+  <div>
+    <h4>选择难度等级:</h4>
+    <%= f.select :difficulty, Question::DIFFICULTY_ITEM, {}, {class: "frm-field required", placeholder: "请选择难度等级"} %>
   </div>
-  <div class="field">
-    <%= f.label :show_date %><br>
-    <%= f.text_field :show_date %>
+    
+	<div class="book_date btm">
+		<h4>选择题目日期:</h4>
+		<form>
+		<%= f.text_field :show_date, class: "date" %>
+		</form>
+	</div>
+
+  <div>
+    <h4>题目内容:</h4>
+    <%= f.text_area :content, placeholder: "请将需要填空的内容用下划线“_”代替，例如：Here's a story about Ming's life on the waters. Ming has lived all his life on a wide r_ in china. His home is a large house-boat with a roof,one of hundreds that move up and down. In about six years he has not once been on l_ but he is never lonely. He is a strong swimmer.", style: "height: 180px;"%>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+  <div>
+    <h4>答案:</h4>
+    <%= f.text_field :answer, placeholder: "请将答案按顺序用竖线“|”分割，例如：iver|and" %>
   </div>
-  <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_field :answer %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit "创建" %>
   </div>
 <% end %>
-</div>
+
