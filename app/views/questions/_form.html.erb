@@ -1,9 +1,3 @@
-<script src="/assets/jquery-ui.js"></script>
-<script>
-  $(function() {
-    $( "#datepicker,#question_show_date" ).datepicker();
-  });
-</script>
 <h3>创建题目</h3>
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>

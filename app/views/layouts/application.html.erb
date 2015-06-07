@@ -53,7 +53,8 @@
 							</form>
 						</div>
 						<ul class="s_nav">
-							<li><a href="/questions/new" onclick="location.reload([true])">创建题目</a></li>
+							<li>
+							<%=link_to "创建题目" , new_question_url %></li>
 							<li><a href="/questions">已创建题目</a></li>
 							<li><a href="#">模拟做题</a></li>
 							<% if user_signed_in? %>

@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_filter :authenticate_admin_activity
 
   respond_to :html
 

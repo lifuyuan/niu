@@ -38,4 +38,14 @@ class User
   field :grade, type: String
   field :score, type: BigDecimal
 
+  belongs_to :role
+
+  def role?(role)
+    self.role.name == role.to_s
+  end
+
+  before_create do
+    self.role ||= Role.find_by(name: 'student')
+  end
+
 end

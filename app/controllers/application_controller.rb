@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
   end
 
+  def authenticate_admin_activity
+    if not current_user.role?("admin")
+      logger.info "对不起，您没有权限访问该网址！"
+      flash[:notice] = "对不起，只有管理员才有权限访问该网址！"
+      redirect_to root_path
+    end
+  end
+
   private
   def handle_intercept
   	redirect_to root_path, notice: "系统暂不开放注册" if "/users/sign_up" == request.path
