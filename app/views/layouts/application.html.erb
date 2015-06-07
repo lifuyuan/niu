@@ -56,7 +56,7 @@
 							<li>
 							<%=link_to "创建题目" , new_question_url %></li>
 							<li><a href="/questions">已创建题目</a></li>
-							<li><a href="#">模拟做题</a></li>
+							<li><a href="/questions/show_questions">模拟做题</a></li>
 							<% if user_signed_in? %>
 							<li><a href="/users/edit">修改密码</a></li>
 							<li><%= link_to('注销', destroy_user_session_path, :method => :delete) %></li>

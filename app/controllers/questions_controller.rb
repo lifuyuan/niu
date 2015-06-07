@@ -6,7 +6,12 @@ class QuestionsController < ApplicationController
   respond_to :html
 
   def index
-    @questions = Question.all
+    @questions = Question.all.desc(:show_date)
+    respond_with(@questions)
+  end
+
+  def show_questions
+    @questions = Question.all.desc(:show_date)
     respond_with(@questions)
   end
 

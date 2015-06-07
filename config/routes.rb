@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :questions do
     resources :learnings
+    collection do
+      get 'show_questions'
+    end
   end
 
   get 'welcome/index'

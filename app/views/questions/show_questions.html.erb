@@ -3,7 +3,7 @@
           <tr>
              <th class="text-center">难度等级</th>
              <th class="text-center">题目日期</th>
-             <th class="text-center">查看最近一次答题情况</th>
+             <th class="text-center">模拟做题</th>
           </tr>
         </thead>
         <% @questions.each do |question| %>
@@ -16,9 +16,7 @@
               <%= question.show_date.strftime("%Y-%m-%d")%>
             </td>
             <td class="text-center">
-              <% if question.learnings.count > 0%>
-              <%=link_to "查看模拟答题情况", "/questions/#{question.id}/learnings/#{question.learnings.last.id}"%>
-              <% end %>
+              <%=link_to "模拟做题", new_question_learning_path(question)%>
             </td>
           </tr>
         </tbody>

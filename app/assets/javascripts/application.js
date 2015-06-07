@@ -20,5 +20,6 @@
 
 
 $(function() {
-  $( "#datepicker,#question_show_date" ).datepicker();
+	$( "#datepicker,#question_show_date" ).datepicker();
+  $( "#datepicker,#question_show_date" ).datepicker('option', {dateFormat: "yy-mm-dd"});
 });
