@@ -11,6 +11,8 @@ class Question
 
   validates_presence_of :difficulty, :show_date, :content, :answer
   before_validation :all_in_one
+  validates :show_date, uniqueness: { scope: :difficulty,
+    message: "该日期已创建过相同难度等级的题目" }
 
   def to_html
 		self.content.gsub("_", "<input name='answer[]' type='text' style='display:inline;width: 6%;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #2c3e50;background-color: #ebebeb;'>")

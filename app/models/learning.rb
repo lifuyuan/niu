@@ -14,6 +14,11 @@ class Learning
   field :is_favorite, type: String
 
   def to_html
+    content = self.question.content
+    standard_answer = self.question.answer.split("|")
+    my_answer = self.answer.split("|")
+    (0..answer_number-1).each {|i| content.sub!("_", "<u>#{my_answer[i]}</u><span style='color: #c0392b; display:inline; font-size: 15px;'>[#{standard_answer[i]}]</span>")}
+    content
   end
   
   before_create do

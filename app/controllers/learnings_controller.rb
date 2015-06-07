@@ -1,6 +1,7 @@
 class LearningsController < ApplicationController
   before_action :set_learning, only: [:show, :edit, :update, :destroy]
   before_action :set_question
+  before_filter :authenticate_user!
 
   respond_to :html
 
