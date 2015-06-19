@@ -5,6 +5,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_save :ensure_authentication_token
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -37,6 +38,7 @@ class User
   field :name, type: String
   field :grade, type: String
   field :score, type: BigDecimal
+  field :authentication_token, type: String
 
   belongs_to :role
   has_many :learnings, :dependent => :destroy
@@ -47,6 +49,22 @@ class User
 
   before_create do
     self.role ||= Role.find_by(name: 'student')
+  end
+
+  #token为空时自动生成新的token
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+ 
+  private
+ 
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 
 end

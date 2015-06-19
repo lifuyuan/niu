@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   devise_for :users
+  namespace :api do
+    post 'users/sign_in' => 'sessions#create'
+    post 'users/sign_up' => 'registrations#create'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
