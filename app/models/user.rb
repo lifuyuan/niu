@@ -5,9 +5,12 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :name, uniqueness: true
+  validates :name, :grade, presence: true
   before_save :ensure_authentication_token
   ## Database authenticatable
   field :email,              type: String, default: ""
+  index({email: 1},{unique: true, name: "user_email_index"})
   field :encrypted_password, type: String, default: ""
 
   ## Recoverable
@@ -39,6 +42,7 @@ class User
   field :grade, type: String
   field :score, type: BigDecimal
   field :authentication_token, type: String
+  index({authentication_token: 1},{unique: true, name: "user_authentication_token_index"})
 
   belongs_to :role
   has_many :learnings, :dependent => :destroy
@@ -49,6 +53,10 @@ class User
 
   before_create do
     self.role ||= Role.find_by(name: 'student')
+  end
+
+  before_validation do
+    self.email = "#{self.name}@#{self.name}.com"
   end
 
   #token为空时自动生成新的token

@@ -30,4 +30,14 @@ class ApplicationController < ActionController::Base
   def handle_intercept
   	redirect_to root_path, notice: "系统暂不开放注册" if "/users/sign_up" == request.path
   end
+
+  # 获取http:/xxx.xxxxx.com/xxx.json?token=aMUj5kiyLbmZdjpr_iAu
+  # 判断token的值是否存在，若存在且能在User表中找到相应的，就登录此用户
+  def authenticate_user_from_token!
+    token = params[:token].presence
+    user = token && User.where(authentication_token: token.to_s).first
+    if user
+      sign_in user, store: false
+    end
+  end
 end
