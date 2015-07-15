@@ -13,6 +13,15 @@ Rails.application.routes.draw do
     post 'users/sign_in' => 'sessions#create'
     post 'users/sign_up' => 'registrations#create'
   end
+
+  namespace :android do
+    # get learnings/one/new_learning?token=pmuFF2briG2cr9vzxCKJ
+    get 'learnings/:difficulty_id/new_learning' => 'learnings#new_learning'
+    # post learnings/55747f876675791088000009/create_learning?token=pmuFF2briG2cr9vzxCKJ
+    post 'learnings/:question_id/create_learning' => 'learnings#create_learning'
+    # get learnings/55a6020d66757911fe000002/show_learning?token=pmuFF2briG2cr9vzxCKJ
+    get 'learnings/:learning_id/show_learning' => 'learnings#show_learning'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
