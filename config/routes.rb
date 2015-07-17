@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   end
 
   namespace :android do
-    # get learnings/one/new_learning?token=pmuFF2briG2cr9vzxCKJ
-    get 'learnings/:difficulty_id/new_learning' => 'learnings#new_learning'
+    # get learnings/new_learning?token=pmuFF2briG2cr9vzxCKJ
+    get 'learnings/new_learning' => 'learnings#new_learning'
     # post learnings/55747f876675791088000009/create_learning?token=pmuFF2briG2cr9vzxCKJ
     post 'learnings/:question_id/create_learning' => 'learnings#create_learning'
     # get learnings/55a6020d66757911fe000002/show_learning?token=pmuFF2briG2cr9vzxCKJ

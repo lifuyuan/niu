@@ -43,6 +43,7 @@ class User
   field :score, type: BigDecimal
   field :authentication_token, type: String
   index({authentication_token: 1},{unique: true, name: "user_authentication_token_index"})
+  field :default_difficulty, type: String
 
   belongs_to :role
   has_many :learnings, :dependent => :destroy
@@ -53,6 +54,7 @@ class User
 
   before_create do
     self.role ||= Role.find_by(name: 'student')
+    self.default_difficulty = {"6"=>"one", "7"=>"two", "8"=>"three", "9"=>"three"}[self.grade]
   end
 
   before_validation do

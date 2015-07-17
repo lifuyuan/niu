@@ -5,7 +5,8 @@ class Android::LearningsController < ApplicationController
   respond_to :html
 
   def new_learning
-    @question = Question.where(show_date: "#{Time.now.strftime("%Y%m%d")}", difficulty: params[:difficulty_id]).first
+    difficulty = params[:difficulty] || current_user.default_difficulty
+    @question = Question.where(show_date: "#{Time.now.strftime("%Y%m%d")}", difficulty: difficulty).first
     @learning = Learning.new
     render(:layout => "layouts/android")
   end
