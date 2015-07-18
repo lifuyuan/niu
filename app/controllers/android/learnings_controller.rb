@@ -12,9 +12,17 @@ class Android::LearningsController < ApplicationController
   end
 
   def create_learning
+    @question = Question.where(id: params[:question_id]).first
+    @learning = Learning.new(answer: params[:answer].join("|"))
+    @learning.question = @question
+    @learning.user = current_user
+    @learning.save
+    redirect_to "/android/learnings/#{@learning.id}/show_learning"
   end
 
   def show_learning
+    @learning = Learning.find(params[:learning_id])
+    render(:layout => "layouts/android")
   end
 
 end

@@ -1,0 +1,7 @@
+<div class="like_table">
+	<div class="like_time">
+		<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
+	</div>
+	<p><%=@learning.to_html.html_safe%></p>
+	<p>正确率：<%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></p>
+</div>
