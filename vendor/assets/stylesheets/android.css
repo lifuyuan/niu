@@ -22,6 +22,7 @@
 
 .android_contact p{
   color: #ecf0f1;
+  line-height: 30px;
 }
 
 .android_contact input[type="text"]{
@@ -30,8 +31,8 @@
   font-size: 0.8725em;
   padding: 8px;
   outline: none;
-  margin: 5px 0;
-  /*font-family: 'Open Sans', sans-serif;*/
+  /*margin: 5px 0;
+  font-family: 'Open Sans', sans-serif;*/
   border: 1px solid #DFDFDF;
   box-shadow: inset 0 0 2px rgb(236, 236, 236);
   -webkit-box-shadow: inset 0 0 2px rgb(236, 236, 236);
@@ -42,11 +43,9 @@
 
 .android_contact input[type="submit"]{
   margin-top: 10px;
-  margin-right: 10%;
   display: inline-block;
   text-transform: uppercase;
   background: #ccff00;
-  /*font-family: 'Open Sans', sans-serif;*/
   color: #FFF;
   padding: 10px;
   border: none;
@@ -57,16 +56,39 @@
   -o-transition: 0.5s all;
   outline: none;
   cursor: pointer;
-  float: right;
-  width: 25% !important;
   -webkit-appearance: none;
 }
 .android_contact input[type="submit"]:hover{
   background: #228AC6;
 }
 
+.android_contact .like_table {
+  border:1px solid #bdc3c7;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.like_table .like_button {
+  text-align: center; 
+  margin-bottom: -50px;
+}
+
+.like_table .like_time {
+  background: #ccff00;
+  padding: 10px;
+  font-size: 1em;
+  color: #FFF;
+  width: 55px;
+  margin: auto;
+  margin-top: -50px;
+}
+
 span.prefix {
 	color: #ccff00;
+  font-style: italic;
+  font-weight: bold;
 }
 
 /***** Media Quries *****/

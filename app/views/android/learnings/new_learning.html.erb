@@ -1,42 +1,60 @@
-<span id="div3"></span>:<span id="div2"></span>:<span id="div1"></span>
-        <script language="JavaScript" type="text/javascript">
-            var id;
-            var count_s = 0;
-            var count_m = 0;
-            var count_h = 0;
-            window.onload=function(){
-                id = window.setInterval("Do()",1000);
-            }
-            function Do()
-            {
-            document.getElementById("div1").innerHTML = format(count_s.toString(),2);
-            document.getElementById("div2").innerHTML = format(count_m.toString(),2);
-            document.getElementById("div3").innerHTML = format(count_h.toString(),2);
-            count_s++;
-            if (count_s > 59) 
-            {
-                count_s = 0;
-                count_m++;
-            }
-            if (count_m > 59)
-            {
-                count_m = 0;
-                count_h++;
-            }
-            }
-            function format(num, len) { 
-            var l = num.length; 
-            if (num.length < len) { 
-            for (var i = 0; i < len - l; i++) { 
-            num = "0" + num; 
-            } 
-            } 
-            return num; 
-            }
-        </script>
-<%= form_for([@question, @learning], url: "/learnings/#{@question.id}/create_learning" ) do |f| %>
-  <p><%=@question.to_html_android.html_safe%></p>
-  <div>
-    <%= f.submit :提交 %>
-  </div>
-<% end %>
+
+<div class="like_table">
+	<div class="like_time">
+		<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
+	</div>
+	<%= form_for([@question, @learning], url: "/learnings/#{@question.id}/create_learning" ) do |f| %>
+	  <p><%=@question.to_html_android.html_safe%></p>
+	  <div class="like_button">
+	    <%= f.submit :提交答案 %>
+	  </div>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+  var id;
+  var count_s = 0;
+  var count_m = 0;
+  var count_h = 0;
+  window.onload=function(){
+    id = window.setInterval("Do()",1000);
+  }
+  function Do()
+  {
+  	document.getElementById("div1").innerHTML = format(count_s.toString(),2);
+  	document.getElementById("div2").innerHTML = format(count_m.toString(),2);
+  	document.getElementById("div3").innerHTML = format(count_h.toString(),2);
+  	count_s++;
+  	if (count_s > 59) 
+  	{
+      count_s = 0;
+      count_m++;
+  	}
+  	if (count_m > 59)
+  	{
+      count_m = 0;
+      count_h++;
+  	}
+  }
+  function format(num, len) { 
+  	var l = num.length; 
+  	if (num.length < len) { 
+  		for (var i = 0; i < len - l; i++) { 
+  			num = "0" + num; 
+  		} 
+  	} 
+  	return num; 
+  }
+</script>

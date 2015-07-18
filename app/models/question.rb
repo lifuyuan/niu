@@ -19,13 +19,13 @@ class Question
 	end
 
   def to_html_android
-    content_array = "#{self.content}&nbsp;".split('_')
+    content_array = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{self.content}&nbsp;".split('_')
     for i in 0..content_array.length-2
       content_array[i].insert(-2, "<span class='prefix'>")
       content_array[i].insert(-1, "</span>")
-      content_array[i].gsub!("\r\n", "<br/>")
+      content_array[i].gsub!("\r\n", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     end
-    content_array.join("<input name='answer[]' type='text' style='display:inline;width: 6%;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #ccff00;background: transparent; box-shadow: none;'>")
+    content_array.join("<input name='answer[]' type='text' style='display:inline;width: 40px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #ccff00;background: transparent; box-shadow: none;'>")
   end
 
 	def all_in_one
