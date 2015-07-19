@@ -27,7 +27,7 @@
 
 .android_contact input[type="text"]{
   width: 88%;
-  color: #ccff00;
+  color: #B5E61D;
   font-size: 0.8725em;
   padding: 8px;
   outline: none;
@@ -45,7 +45,7 @@
   margin-top: 10px;
   display: inline-block;
   text-transform: uppercase;
-  background: #ccff00;
+  background: #B5E61D;
   color: #FFF;
   padding: 10px;
   border: none;
@@ -59,7 +59,7 @@
   -webkit-appearance: none;
 }
 .android_contact input[type="submit"]:hover{
-  background: #228AC6;
+  background: #B5E61D;
 }
 
 .android_contact .like_table {
@@ -76,7 +76,7 @@
 }
 
 .like_table .like_time {
-  background: #ccff00;
+  background: #B5E61D;
   padding: 10px;
   font-size: 1em;
   color: #FFF;
@@ -86,7 +86,7 @@
 }
 
 span.prefix {
-	color: #ccff00;
+	color: #B5E61D;
   font-style: italic;
   font-weight: bold;
 }

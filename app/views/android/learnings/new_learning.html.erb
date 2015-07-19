@@ -3,7 +3,7 @@
 	<div class="like_time">
 		<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
 	</div>
-	<%= form_for([@question, @learning], url: "/android/learnings/#{@question.id}/create_learning" ) do |f| %>
+	<%= form_for([@question, @learning], url: "/android/learnings/#{@question.id}/create_learning?token=#{@user.authentication_token}" ) do |f| %>
 	  <p><%=@question.to_html_android.html_safe%></p>
 	  <div class="like_button">
 	    <%= f.submit :提交答案 %>

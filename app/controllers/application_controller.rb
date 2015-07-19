@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   rescue_from Exception do |exception|
   	logger.error "发生异常，跳转，异常原因为：#{exception.message}"
     logger.error exception.backtrace.inspect
-    redirect_to root_path, notice: "系统异常"
+    if request.url.include? "android"
+      redirect_to "/android/welcome/errorpage"
+    else
+      redirect_to root_path, notice: "系统异常"
+    end
   end
 
   protected
@@ -35,9 +39,11 @@ class ApplicationController < ActionController::Base
   # 判断token的值是否存在，若存在且能在User表中找到相应的，就登录此用户
   def authenticate_user_from_token!
     token = params[:token].presence
-    user = token && User.where(authentication_token: token.to_s).first
-    if user
-      sign_in user, store: false
+    @user = token && User.where(authentication_token: token.to_s).first
+    if @user
+      sign_in @user, store: false
+    else
+      redirect_to "/android/welcome/errorpage" and return
     end
   end
 end

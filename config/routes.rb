@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     post 'learnings/:question_id/create_learning' => 'learnings#create_learning'
     # get learnings/55a6020d66757911fe000002/show_learning?token=pmuFF2briG2cr9vzxCKJ
     get 'learnings/:learning_id/show_learning' => 'learnings#show_learning'
+    get 'welcome/errorpage'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

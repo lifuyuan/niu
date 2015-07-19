@@ -25,7 +25,7 @@ class Question
       content_array[i].insert(-1, "</span>")
       content_array[i].gsub!("\r\n", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     end
-    content_array.join("<input name='answer[]' type='text' style='display:inline;width: 40px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #ccff00;background: transparent; box-shadow: none;'>")
+    content_array.join("<input name='answer[]' type='text' style='display:inline;width: 40px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #B5E61D;background: transparent; box-shadow: none;'>")
   end
 
 	def all_in_one
