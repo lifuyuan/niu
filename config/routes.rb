@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     # get learnings/55a6020d66757911fe000002/show_learning?token=pmuFF2briG2cr9vzxCKJ
     get 'learnings/:learning_id/show_learning' => 'learnings#show_learning'
     get 'welcome/errorpage'
+    # get learnings/one/lock?token=pmuFF2briG2cr9vzxCKJ
+    get 'learnings/:difficulty_value/lock' => 'learnings#lock'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -70,6 +70,54 @@
   padding-right: 5px;
 }
 
+.android_contact .choose {
+  background-color: #fff;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.choose a {
+  text-decoration:none;
+  color: #000;
+}
+
+.choose .change_add {
+  float: left; 
+  font-size: 40px; 
+  font-weight: bold; 
+  margin-left: 4px;
+}
+
+.choose .change_minus {
+  float: left; 
+  font-size: 40px; 
+  font-weight: bold; 
+  margin-left: 4px;
+}
+
+.choose #lock {
+  float: right;
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+.choose #unlock {
+  float: right;
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+.choose a:hover, .choose a:active{
+  text-decoration:none;
+  color:#000;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  background-color: transparent;
+}
+
 .like_table .like_button {
   text-align: center; 
   margin-bottom: -50px;

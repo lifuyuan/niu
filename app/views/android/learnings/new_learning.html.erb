@@ -1,28 +1,51 @@
-
-<div class="like_table">
-	<div class="like_time">
-		<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
-	</div>
-	<%= form_for([@question, @learning], url: "/android/learnings/#{@question.id}/create_learning?token=#{@user.authentication_token}" ) do |f| %>
-	  <p><%=@question.to_html_android.html_safe%></p>
-	  <div class="like_button">
-	    <%= f.submit :提交答案 %>
-	  </div>
+<div class="choose">
+  <% if @difficulty == "one"%>
+    <span class="change_add">
+      <%= link_to "+", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
+    </span>
+	  <span>
+		  <span><%= image_tag "star_none.png"%></span>
+	  </span>
+	<% elsif @difficulty == "two"%>
+	  <span class="change_minus" style="margin-right: 5px; margin-top: -4px;">
+	    <%= link_to "-", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
+	  </span>
+	  <span class="change_add">
+	    <%= link_to "+", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
+	  </span>
+		<span>
+		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag "star_none.png"%></span>
+	  </span>
+	<% elsif @difficulty == "three"%>
+	  <span class="change_minus">
+	    <%= link_to "-", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
+	  </span>
+	  <span>
+		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag "star_none.png"%></span>
+	  </span>
 	<% end %>
+	<% if @difficulty == @user.default_difficulty%>
+    <span id="lock"><%= image_tag "lock.png"%></span>
+  <% else %>
+    <span id="unlock"><%= link_to image_tag("unlock.png"), "/android/learnings/#{@difficulty}/lock?token=#{@user.authentication_token}", remote: true%></span>
+  <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="like_table">
+  <% if @question.nil? %>
+  	<p>亲，当前难度等级还没有设置题目哦，你可以通过左上角的加减号来调整难度等级!</p>
+  <% else %>
+		<div class="like_time">
+			<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
+		</div>
+		<%= form_for([@question, @learning], url: "/android/learnings/#{@question.id}/create_learning?token=#{@user.authentication_token}" ) do |f| %>
+		  <p><%=@question.to_html_android.html_safe%></p>
+		  <div class="like_button">
+		    <%= f.submit :提交答案 %>
+		  </div>
+		<% end %>
 <script language="JavaScript" type="text/javascript">
   var id;
   var count_s = 0;
@@ -58,3 +81,5 @@
   	return num; 
   }
 </script>
+	<% end %>
+</div>
