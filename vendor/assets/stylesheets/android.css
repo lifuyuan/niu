@@ -22,6 +22,8 @@
 
 .android_contact p{
   color: #ecf0f1;
+  font-family: "Verdana";
+  font-size: 13px;
   line-height: 30px;
 }
 
