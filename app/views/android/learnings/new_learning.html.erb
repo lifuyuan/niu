@@ -1,30 +1,27 @@
 <div class="choose">
   <% if @difficulty == "one"%>
     <span class="change_add">
-      <%= link_to image_tag("plus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
+      <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
     </span>
 	  <span>
-		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag("star_none.png", style: "margin-top: 5px;")%></span>
 	  </span>
 	<% elsif @difficulty == "two"%>
-	  <span class="change_minus" style="margin-right: 5px;">
-	    <%= link_to image_tag("minus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
-	  </span>
 	  <span class="change_add">
-	    <%= link_to image_tag("plus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
+	    <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
 	  </span>
 		<span>
-		  <span><%= image_tag "star_none.png"%></span>
-		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
+		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
 	  </span>
 	<% elsif @difficulty == "three"%>
-	  <span class="change_minus">
-	    <%= link_to image_tag("minus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
-	  </span>
+	  <span class="change_add">
+      <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
+    </span>
 	  <span>
-		  <span><%= image_tag "star_none.png"%></span>
-		  <span><%= image_tag "star_none.png"%></span>
-		  <span><%= image_tag "star_none.png"%></span>
+		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
+		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
+		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
 	  </span>
 	<% end %>
 	<% if @difficulty == @user.default_difficulty%>
@@ -35,7 +32,7 @@
 </div>
 <div class="like_table">
   <% if @question.nil? %>
-  	<p>亲，当前难度等级还没有设置题目哦，你可以通过左上角的加减号来调整难度等级!</p>
+  	<p>亲，当前难度等级还没有设置题目哦，你可以通过左上角的加号来调整难度等级!</p>
   <% else %>
 		<div class="like_time">
 			<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>

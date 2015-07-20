@@ -74,6 +74,7 @@
   background-color: #fff;
   margin-bottom: 25px;
   text-align: center;
+  height: 30px;
 }
 
 .choose a {
@@ -88,21 +89,16 @@
   margin-top: 2px;
 }
 
-.choose .change_minus {
-  float: left; 
-  font-weight: bold; 
-  margin-left: 4px;
-  margin-top: 2px;
-}
-
 .choose #lock {
   float: right;
   margin-right: 4px;
+  margin-top: 3px;
 }
 
 .choose #unlock {
   float: right;
-  margin-right: 4px;
+  margin-right: 5px;
+  margin-top: 4px;
 }
 
 .choose a:hover, .choose a:active{
