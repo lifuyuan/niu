@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'welcome/index'
+  get 'apk/download'
 
   devise_for :users
   namespace :api do
