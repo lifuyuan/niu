@@ -83,27 +83,25 @@
 
 .choose .change_add {
   float: left; 
-  font-size: 40px; 
   font-weight: bold; 
   margin-left: 4px;
+  margin-top: 2px;
 }
 
 .choose .change_minus {
   float: left; 
-  font-size: 40px; 
   font-weight: bold; 
   margin-left: 4px;
+  margin-top: 2px;
 }
 
 .choose #lock {
   float: right;
-  margin-top: 10px;
   margin-right: 4px;
 }
 
 .choose #unlock {
   float: right;
-  margin-top: 10px;
   margin-right: 4px;
 }
 

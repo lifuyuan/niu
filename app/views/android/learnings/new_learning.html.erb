@@ -1,17 +1,17 @@
 <div class="choose">
   <% if @difficulty == "one"%>
     <span class="change_add">
-      <%= link_to "+", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
+      <%= link_to image_tag("plus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
     </span>
 	  <span>
 		  <span><%= image_tag "star_none.png"%></span>
 	  </span>
 	<% elsif @difficulty == "two"%>
-	  <span class="change_minus" style="margin-right: 5px; margin-top: -4px;">
-	    <%= link_to "-", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
+	  <span class="change_minus" style="margin-right: 5px;">
+	    <%= link_to image_tag("minus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
 	  </span>
 	  <span class="change_add">
-	    <%= link_to "+", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
+	    <%= link_to image_tag("plus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
 	  </span>
 		<span>
 		  <span><%= image_tag "star_none.png"%></span>
@@ -19,7 +19,7 @@
 	  </span>
 	<% elsif @difficulty == "three"%>
 	  <span class="change_minus">
-	    <%= link_to "-", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
+	    <%= link_to image_tag("minus.png"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
 	  </span>
 	  <span>
 		  <span><%= image_tag "star_none.png"%></span>
