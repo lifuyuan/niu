@@ -1,0 +1,25 @@
+<div class="nt">&nbsp;</div>
+<div class="like_table">
+		<div class="like_yesterday">
+			TOP 10
+		</div>
+    <table class="info_table">
+      <tr>
+        <th>学生</th>
+        <th>积分</th>
+        <th>等级</th>
+        <th>排名</th>
+      </tr>
+		<% User.all.desc(:score).limit(10).each do |user| %>
+      <tr>
+        <td><%=user.name%></td>
+        <td><%=user.score.to_i%></td>
+        <td><%=user.score_rating%></td>
+        <td><%=user.score_ranking%></td>
+      </tr>
+    <% end %>
+    </table>
+    <div id="close">
+      <%= link_to "关闭", "/android/learnings/learning_info?token=#{@user.authentication_token}"%>
+    </div>
+</div>

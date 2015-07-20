@@ -26,6 +26,13 @@ Rails.application.routes.draw do
     get 'learnings/:difficulty_value/lock' => 'learnings#lock'
     # get learnings/55a6020d66757911fe000002/keep?token=pmuFF2briG2cr9vzxCKJ
     get 'learnings/:learning_id/keep' => "learnings#keep"
+    # get learnings/learning_info?token=pmuFF2briG2cr9vzxCKJ
+    get 'learnings/learning_info' => "learnings#learning_info"
+
+    get 'learnings/learning_record' => "learnings#learning_record"
+    get 'learnings/favorite' => "learnings#favorite"
+    get 'learnings/top_ten_yesterday' => "learnings#top_ten_yesterday"
+    get 'learnings/top_ten' => "learnings#top_ten"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

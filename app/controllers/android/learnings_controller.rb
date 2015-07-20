@@ -58,4 +58,26 @@ class Android::LearningsController < ApplicationController
     end
   end
 
+  def learning_info
+    render(:layout => "layouts/android")
+  end
+
+  def learning_record
+    @learnings = @user.learnings.desc(:created)
+    render(:layout => "layouts/android")
+  end
+
+  def favorite
+    @learnings = @user.learnings.where(is_favorite: "yes").desc(:created)
+    render(:layout => "layouts/android")
+  end
+
+  def top_ten_yesterday
+    render(:layout => "layouts/android")
+  end
+
+  def top_ten
+    render(:layout => "layouts/android")
+  end
+
 end

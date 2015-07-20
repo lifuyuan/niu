@@ -124,7 +124,27 @@
   margin-bottom: -40px;
 }
 
+.like_table #close {
+  text-align: center; 
+  margin-bottom: -40px;
+  margin-top: 33px;
+}
+
 .like_table #like_keep a{
+  background: #B5E61D;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  margin: auto;
+  margin-top: -50px;
+  text-align: center;
+}
+
+.like_table #close a{
   background: #B5E61D;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -164,6 +184,28 @@
   text-align: center;
 }
 
+.like_table .like_yesterday {
+  background: #B5E61D;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  width: 65px;
+  margin: auto;
+  margin-top: -50px;
+}
+
+.like_table .like_yesterday_topten {
+  background: #B5E61D;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  width: 85px;
+  margin: auto;
+  margin-top: -50px;
+}
+
 .like_show .time_spent {
   float: left; 
   margin-left: 4px;
@@ -184,6 +226,10 @@
   margin-top: -50px;
 }
 
+.nt {
+  margin-top: 40px;
+}
+
 span.prefix {
 	color: #B5E61D;
   font-style: italic;
@@ -192,6 +238,42 @@ span.prefix {
 
 span.prefix_show {
   color: #B5E61D;
+}
+
+.info_table {
+  width: 100%;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: -25px;
+}
+.info_table th{
+  color: #ecf0f1;
+}
+
+.info_table td{
+  color: #FFF;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.android_contact .link {
+  background-color: transparent;
+  margin-bottom: 25px;
+  text-align: center;
+  height: 30px;
+  margin-top: 30px;
+}
+
+.android_contact .link a{
+  background: #B5E61D;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 40%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  margin: auto;
+  text-align: center;
 }
 
 /***** Media Quries *****/

@@ -1,0 +1,69 @@
+<div class="nt">&nbsp;</div>
+<% if @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").count > 0 %>
+<div class="like_table">
+		<div class="like_yesterday">
+			昨日战绩
+		</div>
+    <table class="info_table">
+      <tr>
+        <th>难度</th>
+        <th>准确率</th>
+        <th>用时</th>
+        <th>排名</th>
+        <th>积分</th>
+      </tr>
+		<% @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").each do |learning| %>
+      <tr>
+        <td>
+          <% if learning.difficulty=="one"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="two"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="three"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% end %>
+        </td>
+        <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
+        <td><%=learning.spent%></td>
+        <td><%=learning.current_ranking%></td>
+        <td><%=learning.score.to_i%></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+<% end %>
+
+<div class="like_table">
+    <div class="like_yesterday">
+      积分等级
+    </div>
+    <table class="info_table">
+      <tr>
+        <th>昨日积分</th>
+        <th>累计积分</th>
+        <th>积分排名</th>
+        <th>当前等级</th>
+      </tr>
+      <tr>
+        <td>
+          <%=@user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").sum{|p| p.score}.to_i%>
+        </td>
+        <td><%=@user.score.to_i%></td>
+        <td><%=@user.score_ranking%></td>
+        <td><%=@user.score_rating%>级</td>
+      </tr>
+    </table>
+</div>
+
+<div class="link">
+<%=link_to "学习记录", "/android/learnings/learning_record?token=#{@user.authentication_token}", style: "float: left;"%>
+<%=link_to "我的收藏", "/android/learnings/favorite?token=#{@user.authentication_token}", style: "float: right;"%>
+</div>
+
+<div class="link">
+<%=link_to "Top 10（昨日）", "/android/learnings/top_ten_yesterday?token=#{@user.authentication_token}", style: "float: left;"%>
+<%=link_to "Top 10", "/android/learnings/top_ten?token=#{@user.authentication_token}", style: "float: right;"%>
+</div>

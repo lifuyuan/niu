@@ -52,6 +52,19 @@ class User
     self.role.name == role.to_s
   end
 
+  def score_ranking
+    rank = 0
+    user_array = User.all.desc(:score).to_a
+    (0..user_array.size-1).each do |i|
+      rank = i+1 if self.id == user_array[i].id
+    end
+    "#{rank}/#{User.all.count}"
+  end
+
+  def score_rating
+    score.to_i/30
+  end
+
   before_create do
     self.role ||= Role.find_by(name: 'student')
     self.default_difficulty = {"6"=>"one", "7"=>"two", "8"=>"three", "9"=>"three"}[self.grade]

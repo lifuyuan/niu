@@ -1,0 +1,38 @@
+<div class="nt">&nbsp;</div>
+<div class="like_table">
+		<div class="like_yesterday">
+			学习记录
+		</div>
+    <table class="info_table">
+      <tr>
+        <th>日期</th>
+        <th>难度</th>
+        <th>准确率</th>
+        <th>排名</th>
+        <th>文章</th>
+      </tr>
+		<% @learnings.each do |learning| %>
+      <tr>
+        <td><%=learning.learning_date.strftime("%Y-%m-%d")%></td>
+        <td>
+          <% if learning.difficulty=="one"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="two"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="three"%>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+          <% end %>
+        </td>
+        <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
+        <td><%=learning.current_ranking%></td>
+        <td><%=link_to "查看", "/android/learnings/#{learning.id}/show_learning?token=#{@user.authentication_token}"%></td>
+      </tr>
+    <% end %>
+    </table>
+    <div id="close">
+      <%= link_to "关闭", "/android/learnings/learning_info?token=#{@user.authentication_token}"%>
+    </div>
+</div>

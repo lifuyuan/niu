@@ -74,7 +74,7 @@ class Learning
 
   def calc_ranking
     rank = 0
-    learning_array = self.question.learnings.desc(:right_answer_number).desc(:time_spent).to_a
+    learning_array = self.question.learnings.desc(:right_answer_number).asc(:time_spent).to_a
     (0..learning_array.size-1).each do |i|
       rank = i+1 if self.id == learning_array[i].id
     end
@@ -83,7 +83,7 @@ class Learning
 
   def current_ranking
     rank = 0
-    learning_array = self.question.learnings.desc(:right_answer_number).desc(:time_spent).to_a
+    learning_array = self.question.learnings.desc(:right_answer_number).asc(:time_spent).to_a
     (0..learning_array.size-1).each do |i|
       rank = i+1 if self.id == learning_array[i].id
     end
