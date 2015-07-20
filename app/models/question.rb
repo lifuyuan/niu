@@ -8,6 +8,7 @@ class Question
   field :content, type: String
   field :answer, type: String
   has_many :learnings, :dependent => :destroy
+  has_many :answer_times, :dependent => :destroy
 
   validates_presence_of :difficulty, :show_date, :content, :answer
   before_validation :all_in_one
@@ -19,7 +20,7 @@ class Question
 	end
 
   def to_html_android
-    content_array = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{self.content}&nbsp;".split('_')
+    content_array = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: #B5E61D;'>[#{self.show_date.strftime("%Y-%m-%d")}]</span>#{self.content}&nbsp;".split('_')
     for i in 0..content_array.length-2
       content_array[i].insert(-2, "<span class='prefix'>")
       content_array[i].insert(-1, "</span>")

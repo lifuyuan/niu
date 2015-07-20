@@ -35,7 +35,7 @@
   	<p>亲，当前难度等级还没有设置题目哦，你可以通过左上角的加号来调整难度等级!</p>
   <% else %>
 		<div class="like_time">
-			<span id="div3">00</span>:<span id="div2">00</span>:<span id="div1">00</span>
+			<span id="div3"><%=sprintf("%.2d", @count_h)%></span>:<span id="div2"><%=sprintf("%.2d", @count_m)%></span>:<span id="div1"><%=sprintf("%.2d", @count_s)%></span>
 		</div>
 		<%= form_for([@question, @learning], url: "/android/learnings/#{@question.id}/create_learning?token=#{@user.authentication_token}" ) do |f| %>
 		  <p><%=@question.to_html_android.html_safe%></p>
@@ -45,9 +45,9 @@
 		<% end %>
 <script language="JavaScript" type="text/javascript">
   var id;
-  var count_s = 0;
-  var count_m = 0;
-  var count_h = 0;
+  var count_s = <%=@count_s%>;
+  var count_m = <%=@count_m%>;
+  var count_h = <%=@count_h%>;
   window.onload=function(){
     id = window.setInterval("Do()",1000);
   }
