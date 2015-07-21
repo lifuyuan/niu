@@ -16,6 +16,7 @@ class LearningsController < ApplicationController
 
   def new
     @learning = Learning.new
+    AnswerTime.create(user: current_user, question: @question, begin_time: Time.now)
     respond_with([@question, @learning])
   end
 
