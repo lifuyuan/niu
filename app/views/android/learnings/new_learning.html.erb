@@ -30,7 +30,7 @@
     <span id="unlock"><%= link_to image_tag("unlock.png"), "/android/learnings/#{@difficulty}/lock?token=#{@user.authentication_token}", remote: true%></span>
   <% end %>
 </div>
-<div class="like_table" style="margin-bottom: 140px;">
+<div class="like_table" style="margin-bottom: 160px;">
   <% if @question.nil? %>
   	<p>亲，当前难度等级还没有设置题目哦，你可以通过左上角的加号来调整难度等级!</p>
   <% else %>

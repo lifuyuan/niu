@@ -16,7 +16,7 @@ class Question
     message: "该日期已创建过相同难度等级的题目" }
 
   def to_html
-		self.content.gsub("_", "<input name='answer[]' type='text' style='display:inline;width: 6%;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #2c3e50;background-color: #ebebeb; box-shadow: none;'>")
+		self.content.gsub("_", "<input name='answer[]' type='text' style='display:inline;padding-left: 0px;padding-right: 0px;width: 10%;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #2c3e50;background-color: #ebebeb; box-shadow: none;'>")
 	end
 
   def to_html_android
