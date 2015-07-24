@@ -1,5 +1,4 @@
 <div class="nt">&nbsp;</div>
-<% if @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").count > 0 %>
 <div class="like_table">
 		<div class="like_yesterday">
 			昨日战绩
@@ -34,7 +33,6 @@
     <% end %>
     </table>
 </div>
-<% end %>
 
 <div class="like_table" style="margin-top: 40px;">
     <div class="like_yesterday">
