@@ -7,10 +7,10 @@ class Learning
   field :difficulty, type: String
   field :learning_date, type: Date
   field :answer, type: String
-  field :answer_number, type: BigDecimal
-  field :right_answer_number, type: BigDecimal
-  field :time_spent, type: BigDecimal
-  field :score, type: BigDecimal
+  field :answer_number, type: Integer
+  field :right_answer_number, type: Integer
+  field :time_spent, type: Integer
+  field :score, type: Integer
   field :ranking, type: String
   field :is_favorite, type: String
 

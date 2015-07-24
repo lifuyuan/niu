@@ -11,6 +11,7 @@
         <th>用时</th>
         <th>排名</th>
       </tr>
+      <% i = 1%>
 		<% Learning.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").desc(:right_answer_number).asc(:time_spent).limit(10).each do |learning| %>
       <tr>
         <td><%=learning.user.name%></td>
@@ -28,8 +29,9 @@
         </td>
         <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
         <td><%=learning.spent%></td>
-        <td><%=learning.current_ranking%></td>
+        <td><%=i%></td>
       </tr>
+      <% i = i + 1%>
     <% end %>
     </table>
 

@@ -40,7 +40,7 @@ class User
 
   field :name, type: String
   field :grade, type: String
-  field :score, type: BigDecimal
+  field :score, type: Integer
   field :authentication_token, type: String
   index({authentication_token: 1},{unique: true, name: "user_authentication_token_index"})
   field :default_difficulty, type: String
