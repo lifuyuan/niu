@@ -1,0 +1,11 @@
+<div class="like_table" style="margin-top: 40px;">
+	<div class="like_show">
+		<span class="time_spent">用时：<%=@learning.spent%></span>
+		<span>准确率：<%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></span>
+		<span class="ranking">排名：<%=@learning.ranking%></span>
+	</div>
+	<p><%=@learning.to_html_android.html_safe%></p>
+	<div id="like_keep">
+    <%= link_to "关闭", "/android/learnings/#{@back}?token=#{@user.authentication_token}"%>
+  </div>
+</div>

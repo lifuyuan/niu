@@ -1,7 +1,7 @@
 <div class="nt">&nbsp;</div>
 <div class="like_table">
 		<div class="like_yesterday">
-			学习记录
+			我的收藏
 		</div>
     <table class="info_table">
       <tr>
@@ -28,7 +28,7 @@
         </td>
         <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
         <td><%=learning.current_ranking%></td>
-        <td><%=link_to "查看", "/android/learnings/#{learning.id}/show_learning?token=#{@user.authentication_token}"%></td>
+        <td><%=link_to "查看", "/android/learnings/#{learning.id}/learning_show?token=#{@user.authentication_token}&from=favorite", style: "color: #FFF"%></td>
       </tr>
     <% end %>
     </table>

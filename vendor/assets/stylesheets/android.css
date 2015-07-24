@@ -232,8 +232,8 @@
 
 span.prefix {
 	color: #B5E61D;
-  font-style: italic;
-  font-weight: bold;
+  /*font-style: italic;
+  font-weight: bold;*/
 }
 
 span.prefix_show {

@@ -80,4 +80,10 @@ class Android::LearningsController < ApplicationController
     render(:layout => "layouts/android")
   end
 
+  def learning_show
+    @learning = Learning.where(id: params[:learning_id]).first
+    @back = {"record"=>"learning_record", "favorite"=>"favorite"}[params[:from]]
+    render(:layout => "layouts/android")
+  end
+
 end

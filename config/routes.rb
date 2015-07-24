@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get 'learnings/favorite' => "learnings#favorite"
     get 'learnings/top_ten_yesterday' => "learnings#top_ten_yesterday"
     get 'learnings/top_ten' => "learnings#top_ten"
+    get 'learnings/:learning_id/learning_show' => 'learnings#learning_show'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

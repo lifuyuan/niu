@@ -40,7 +40,7 @@ class User
 
   field :name, type: String
   field :grade, type: String
-  field :score, type: Integer
+  field :score, type: Integer, default: 0
   field :authentication_token, type: String
   index({authentication_token: 1},{unique: true, name: "user_authentication_token_index"})
   field :default_difficulty, type: String
@@ -62,7 +62,7 @@ class User
   end
 
   def score_rating
-    score.to_i/30
+    score.to_i/30 < 0 ? 0 : score.to_i/30
   end
 
   before_create do
