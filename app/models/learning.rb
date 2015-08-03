@@ -34,9 +34,9 @@ class Learning
     new_content = content_array.join("___")
     (0..answer_number-1).each do |i|
       if my_answer[i] == standard_answer[i]
-        new_content.sub!("___", "<u style='color: #B5E61D;'>#{my_answer[i]}</u>")
+        new_content.sub!("___", "<u style='color: #9ce159;'>#{my_answer[i]}</u>")
       else
-        new_content.sub!("___", "<u style='color: #B5E61D;'>#{my_answer[i]}</u><span style='color: red; display:inline;'>[#{standard_answer[i]}]</span>")
+        new_content.sub!("___", "<u style='color: #9ce159;'>#{my_answer[i]}</u><span style='color: red; display:inline;'>[#{standard_answer[i]}]</span>")
       end
     end
     new_content

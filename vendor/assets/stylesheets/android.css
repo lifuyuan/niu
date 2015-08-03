@@ -1,6 +1,6 @@
 .android_main_bg {
   margin-top: -5px;
-  background: #2E2E2E;
+  background: #404040;
 }
 
 .android_wrap{
@@ -21,7 +21,7 @@
 }
 
 .android_contact p{
-  color: #ecf0f1;
+  color: #fbfcfc;
   font-family: "Times New Roman";
   font-size: 14px;
   line-height: 30px;
@@ -29,7 +29,7 @@
 
 .android_contact input[type="text"]{
   width: 88%;
-  color: #B5E61D;
+  color: #9ce159;
   font-size: 0.8725em;
   padding: 8px;
   outline: none;
@@ -47,8 +47,8 @@
   margin-top: 10px;
   display: inline-block;
   text-transform: uppercase;
-  background: #B5E61D;
-  color: #FFF;
+  background: #404040;
+  color: #9ce159;
   padding: 10px;
   border: none;
   font-size: 1em;
@@ -61,11 +61,11 @@
   -webkit-appearance: none;
 }
 .android_contact input[type="submit"]:hover{
-  background: #B5E61D;
+  background: #404040;
 }
 
 .android_contact .like_table {
-  border:1px solid #bdc3c7;
+  border:2px solid #bdc3c7;
   padding-bottom: 30px;
   padding-top: 30px;
   padding-left: 5px;
@@ -115,13 +115,15 @@
 }
 
 .like_table .like_button {
-  text-align: center; 
+  text-align: right; 
   margin-bottom: -50px;
+  margin-right: 25px;
 }
 
 .like_table #like_keep {
-  text-align: center; 
+  text-align: right; 
   margin-bottom: -40px;
+  margin-right: 25px;
 }
 
 .like_table #close {
@@ -131,21 +133,21 @@
 }
 
 .like_table #like_keep a{
-  background: #B5E61D;
+  background: #404040;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 15px;
   padding-right: 15px;
   font-size: 14px;
   font-weight: bold;
-  color: #FFF;
+  color: #9ce159;
   margin: auto;
   margin-top: -50px;
   text-align: center;
 }
 
 .like_table #close a{
-  background: #B5E61D;
+  background: #9ce159;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 15px;
@@ -161,7 +163,7 @@
 .like_table #like_keeped {
   text-align: center;
   margin-bottom: -45px;
-  background: #B5E61D;
+  background: #9ce159;
   padding-top: 8px;
   padding-bottom: 8px;
   width: 55px;
@@ -173,11 +175,11 @@
 }
 
 .like_table .like_show {
-  background: #B5E61D;
+  background: #fbfcfc;
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #FFF;
+  color: #2c3e50;
   width: 95%;
   margin: auto;
   margin-top: -50px;
@@ -185,7 +187,7 @@
 }
 
 .like_table .like_yesterday {
-  background: #B5E61D;
+  background: #9ce159;
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
@@ -196,7 +198,7 @@
 }
 
 .like_table .like_yesterday_topten {
-  background: #B5E61D;
+  background: #9ce159;
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
@@ -217,13 +219,14 @@
 }
 
 .like_table .like_time {
-  background: #B5E61D;
+  background: #404040;
   padding: 10px;
   font-size: 1em;
   color: #FFF;
-  width: 55px;
+  width: 120px;
   margin: auto;
   margin-top: -50px;
+  text-align: center;
 }
 
 .nt {
@@ -231,13 +234,13 @@
 }
 
 span.prefix {
-	color: #B5E61D;
+	color: #9ce159;
   /*font-style: italic;
   font-weight: bold;*/
 }
 
 span.prefix_show {
-  color: #B5E61D;
+  color: #9ce159;
 }
 
 .info_table {
@@ -265,7 +268,7 @@ span.prefix_show {
 }
 
 .android_contact .link a{
-  background: #B5E61D;
+  background: #9ce159;
   padding-top: 8px;
   padding-bottom: 8px;
   width: 40%;

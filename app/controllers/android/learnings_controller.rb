@@ -13,15 +13,8 @@ class Android::LearningsController < ApplicationController
       end
 
       if answer_time = @question.answer_times.where(user: @user).first
-        count = (Time.now - answer_time.begin_time).to_i
-        @count_h = count/3600
-        @count_m = (count - 3600*@count_h).to_i/60
-        @count_s = (count - 3600*@count_h - @count_m*60).to_i
       else
         AnswerTime.create(user: @user, question: @question, begin_time: Time.now)
-        @count_h = 0
-        @count_m = 0
-        @count_s = 0
       end
     end
     render(:layout => "layouts/android")

@@ -1,43 +1,17 @@
-<div class="choose">
-  <% if @difficulty == "one"%>
-    <span class="change_add">
-      <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two"%>
-    </span>
-	  <span>
-		  <span><%= image_tag("star_none.png", style: "margin-top: 5px;")%></span>
-	  </span>
-	<% elsif @difficulty == "two"%>
-	  <span class="change_add">
-	    <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three"%>
-	  </span>
-		<span>
-		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
-		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
-	  </span>
-	<% elsif @difficulty == "three"%>
-	  <span class="change_add">
-      <%= link_to image_tag("plus.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one"%>
-    </span>
-	  <span>
-		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
-		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
-		  <span><%= image_tag("star_none.png",style: "margin-top: 5px;")%></span>
-	  </span>
-	<% end %>
-</div>
-
-<div class="like_table">
+<div class="like_table" style="margin-top: 25px;">
 	<div class="like_show">
-		<span class="time_spent">用时：<%=@learning.spent%></span>
-		<span>准确率：<%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></span>
-		<span class="ranking">排名：<%=@learning.ranking%></span>
+		<span class="time_spent">用时：<span style="color: #e74c3c"><%=@learning.spent%></span></span>
+		<span>准确率：<span style="color: #e74c3c"><%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></span></span>
+		<span class="ranking">排名：<span style="color: #e74c3c"><%=@learning.ranking%></span></span>
 	</div>
 	<p><%=@learning.to_html_android.html_safe%></p>
-	<% if @learning.is_favorite == "yes" %>
-	  <div id='like_keeped'>已收藏</div>
-	<% else %>
-		<div id="like_keep">
-	    <%= link_to "收藏", "/android/learnings/#{@learning.id}/keep?token=#{@user.authentication_token}" , remote: true%>
-	  </div>
-	<% end %>
+	<div id="like_keep">
+    <% if @difficulty == "one"%>
+      <%= link_to "继续挑战", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=two" %>
+    <% elsif @difficulty == "two"%>
+      <%= link_to "继续挑战", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=three" %>
+    <% elsif @difficulty == "three"%>
+      <%= link_to "继续挑战", "/android/learnings/new_learning?token=#{@user.authentication_token}&difficulty=one" %>
+    <% end %>
+  </div>
 </div>

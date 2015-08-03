@@ -20,13 +20,13 @@ class Question
 	end
 
   def to_html_android
-    content_array = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: #B5E61D;'>[#{self.show_date.strftime("%Y-%m-%d")}]</span>#{self.content}&nbsp;".split('_')
+    content_array = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: #9ce159;'>[#{self.show_date.strftime("%Y-%m-%d")}]</span>#{self.content}&nbsp;".split('_')
     for i in 0..content_array.length-2
       content_array[i].insert(-2, "<span class='prefix'>")
       content_array[i].insert(-1, "</span>")
       content_array[i].gsub!("\r\n", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     end
-    content_array.join("<input name='answer[]' type='text' style='display:inline;padding-left: 0px;padding-right: 0px;width: 67px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #B5E61D;background: transparent; box-shadow: none;'>")
+    content_array.join("<input name='answer[]' type='text' style='display:inline;padding-bottom: 3px;padding-left: 0px;padding-right: 0px;width: 67px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #9ce159;background: transparent; box-shadow: none;'>")
   end
 
 	def all_in_one
