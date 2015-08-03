@@ -1,40 +1,32 @@
 <div class="nt">&nbsp;</div>
-<div class="like_table">
+<div class="like_table" style="background: #ffffff;border: none;color: #000000;">
 		<div class="like_yesterday">
-			昨日战绩
+			昨日排名
 		</div>
     <table class="info_table">
       <tr>
-        <th>难度</th>
-        <th>准确率</th>
-        <th>用时</th>
-        <th>排名</th>
-        <th>积分</th>
+        <th style="width: 33.33%;">
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+        </th>
+        <th style="width: 33.33%;">
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+        </th>
+        <th style="width: 33.33%;">
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+        </th>
       </tr>
-		<% @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").each do |learning| %>
       <tr>
-        <td>
-          <% if learning.difficulty=="one"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-          <% elsif learning.difficulty=="two"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-          <% elsif learning.difficulty=="three"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-          <% end %>
-        </td>
-        <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
-        <td><%=learning.spent%></td>
-        <td><%=learning.current_ranking%></td>
-        <td><%=learning.score.to_i%></td>
+        <td><%=@rank_one%></td>
+        <td><%=@rank_two%></td>
+        <td><%=@rank_three%></td>
       </tr>
-    <% end %>
     </table>
 </div>
 
-<div class="like_table" style="margin-top: 40px;">
+<div class="like_table" style="margin-top: 40px; background: #ffffff;border: none;color: #000000;">
     <div class="like_yesterday">
       积分等级
     </div>
@@ -57,11 +49,6 @@
 </div>
 
 <div class="link">
-<%=link_to "学习记录", "/android/learnings/learning_record?token=#{@user.authentication_token}", style: "float: left;"%>
-<%=link_to "我的收藏", "/android/learnings/favorite?token=#{@user.authentication_token}", style: "float: right;"%>
-</div>
-
-<div class="link">
-<%=link_to "Top 10（昨日）", "/android/learnings/top_ten_yesterday?token=#{@user.authentication_token}", style: "float: left;"%>
-<%=link_to "Top 10", "/android/learnings/top_ten?token=#{@user.authentication_token}", style: "float: right;"%>
+<%=link_to "学习记录", "/android/learnings/learning_record?token=#{@user.authentication_token}", style: "float: right; color: #404040;"%>
+<%=link_to "昨日前十", "/android/learnings/top_ten_yesterday?token=#{@user.authentication_token}", style: "float: left; color: #404040;"%>
 </div>

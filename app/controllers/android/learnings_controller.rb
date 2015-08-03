@@ -52,6 +52,18 @@ class Android::LearningsController < ApplicationController
   end
 
   def learning_info
+    @rank_one = "- -"
+    @rank_two = "- -"
+    @rank_three = "- -"
+    if learning_one = @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "one").first
+      @rank_one = learning_one.current_ranking
+    end
+    if learning_two = @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "two").first
+      @rank_two = learning_two.current_ranking
+    end
+    if learning_three = @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "three").first
+      @rank_three = learning_three.current_ranking
+    end
     render(:layout => "layouts/android")
   end
 

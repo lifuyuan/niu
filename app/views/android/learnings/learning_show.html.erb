@@ -1,8 +1,8 @@
 <div class="like_table" style="margin-top: 40px;">
 	<div class="like_show">
-		<span class="time_spent">用时：<%=@learning.spent%></span>
-		<span>准确率：<%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></span>
-		<span class="ranking">排名：<%=@learning.ranking%></span>
+		<span class="time_spent">用时：<span style="color: #e74c3c"><%=@learning.spent%></span></span>
+		<span>准确率：<span style="color: #e74c3c"><%=@learning.right_answer_number.to_i%>/<%=@learning.answer_number.to_i%></span></span>
+		<span class="ranking">排名：<span style="color: #e74c3c"><%=@learning.ranking%></span></span>
 	</div>
 	<p><%=@learning.to_html_android.html_safe%></p>
 	<div id="like_keep">

@@ -1,7 +1,7 @@
 <div class="nt">&nbsp;</div>
-<div class="like_table">
+<div class="like_table" style="background: #ffffff;border: none;color: #000000;">
 		<div class="like_yesterday_topten">
-			昨日 TOP 10
+			昨日前十
 		</div>
     <table class="info_table">
       <tr>
@@ -12,19 +12,65 @@
         <th>排名</th>
       </tr>
       <% i = 1%>
-		<% Learning.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}").desc(:right_answer_number).asc(:time_spent).limit(10).each do |learning| %>
+		<% Learning.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "one").desc(:right_answer_number).asc(:time_spent).limit(10).each do |learning| %>
       <tr>
         <td><%=learning.user.name%></td>
         <td>
           <% if learning.difficulty=="one"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% elsif learning.difficulty=="two"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% elsif learning.difficulty=="three"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% end %>
+        </td>
+        <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
+        <td><%=learning.spent%></td>
+        <td><%=i%></td>
+      </tr>
+      <% i = i + 1%>
+    <% end %>
+
+    <% i = 1%>
+    <% Learning.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "two").desc(:right_answer_number).asc(:time_spent).limit(10).each do |learning| %>
+      <tr>
+        <td><%=learning.user.name%></td>
+        <td>
+          <% if learning.difficulty=="one"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="two"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="three"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% end %>
+        </td>
+        <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
+        <td><%=learning.spent%></td>
+        <td><%=i%></td>
+      </tr>
+      <% i = i + 1%>
+    <% end %>
+
+    <% i = 1%>
+    <% Learning.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: "three").desc(:right_answer_number).asc(:time_spent).limit(10).each do |learning| %>
+      <tr>
+        <td><%=learning.user.name%></td>
+        <td>
+          <% if learning.difficulty=="one"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="two"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+          <% elsif learning.difficulty=="three"%>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% end %>
         </td>
         <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>

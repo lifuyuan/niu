@@ -154,7 +154,7 @@
   padding-right: 15px;
   font-size: 14px;
   font-weight: bold;
-  color: #FFF;
+  color: #404040;
   margin: auto;
   margin-top: -50px;
   text-align: center;
@@ -191,10 +191,11 @@
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #FFF;
-  width: 65px;
+  color: #404040;
+  width: 70%;
   margin: auto;
   margin-top: -50px;
+  text-align: center;
 }
 
 .like_table .like_yesterday_topten {
@@ -202,10 +203,11 @@
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #FFF;
-  width: 85px;
+  color: #404040;
+  width: 70%;
   margin: auto;
   margin-top: -50px;
+  text-align: center;
 }
 
 .like_show .time_spent {
@@ -250,13 +252,15 @@ span.prefix_show {
   margin-bottom: -25px;
 }
 .info_table th{
-  color: #ecf0f1;
+  color: #404040;
+  text-align: center;
 }
 
 .info_table td{
-  color: #FFF;
+  color: #404040;
   font-weight: bold;
   line-height: 30px;
+  text-align: center;
 }
 
 .android_contact .link {

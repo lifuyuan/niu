@@ -1,5 +1,5 @@
 <div class="nt">&nbsp;</div>
-<div class="like_table">
+<div class="like_table" style="background: #ffffff;border: none;color: #000000;">
 		<div class="like_yesterday">
 			学习记录
 		</div>
@@ -16,19 +16,19 @@
         <td><%=learning.learning_date.strftime("%Y-%m-%d")%></td>
         <td>
           <% if learning.difficulty=="one"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% elsif learning.difficulty=="two"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% elsif learning.difficulty=="three"%>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
-            <span><%= image_tag("star_2.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
+            <span><%= image_tag("star_3.png",style: "margin-top: 5px;")%></span>
           <% end %>
         </td>
         <td><%=learning.right_answer_number.to_i%>/<%=learning.answer_number.to_i%></td>
         <td><%=learning.current_ranking%></td>
-        <td><%=link_to "查看", "/android/learnings/#{learning.id}/learning_show?token=#{@user.authentication_token}&from=record", style: "color: #FFF"%></td>
+        <td><%=link_to "查看", "/android/learnings/#{learning.id}/learning_show?token=#{@user.authentication_token}&from=record", style: "color: #9ce159"%></td>
       </tr>
     <% end %>
     </table>
