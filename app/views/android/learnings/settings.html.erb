@@ -1,0 +1,35 @@
+<div class="settings">
+	<div class="set">
+		<span>默认难度：</span>
+		<span>
+			<% if @user.default_difficulty == "one"%>
+	        <span><%= image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;")%></span>
+	        <span><%= link_to image_tag("star_white.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=two"%>
+	        </span>
+	        <span><%= link_to image_tag("star_white.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=three"%>
+	        </span>
+	    <% elsif @user.default_difficulty == "two"%>
+	        <span><%= link_to image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=one"%>
+	        </span>
+	        <span><%= image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;")%></span>
+	        <span><%= link_to image_tag("star_white.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=three"%>
+	        </span>
+	    <% elsif @user.default_difficulty == "three"%>
+	        <span><%= link_to image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=one"%>
+	        </span>
+	        <span><%= link_to image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;"), "/android/learnings/set_difficulty?token=#{@user.authentication_token}&difficulty=two"%>
+	        </span>
+	        <span><%= image_tag("star_color.png", style: "margin-left: 5px;margin-top: 4px;")%></span>
+	    <% end %>
+		</span>
+	</div>
+	<hr/>
+
+		<div class="contact_us">
+		<span>联系我们：</span>
+		<span>
+			61508152@qq.com
+		</span>
+	</div>
+	<hr/>
+</div>

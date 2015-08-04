@@ -91,4 +91,16 @@ class Android::LearningsController < ApplicationController
     render(:layout => "layouts/android")
   end
 
+
+  def settings
+    render(:layout => "layouts/android")
+  end
+
+  def set_difficulty
+    @difficulty = params[:difficulty] || @user.default_difficulty
+    @user.default_difficulty = @difficulty
+    @user.save
+    redirect_to "/android/learnings/settings?token=#{@user.authentication_token}"
+  end
+
 end

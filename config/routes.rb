@@ -35,6 +35,9 @@ Rails.application.routes.draw do
     get 'learnings/top_ten_yesterday' => "learnings#top_ten_yesterday"
     get 'learnings/top_ten' => "learnings#top_ten"
     get 'learnings/:learning_id/learning_show' => 'learnings#learning_show'
+
+    get 'learnings/settings' => 'learnings#settings'
+    get 'learnings/set_difficulty' => 'learnings#set_difficulty'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -283,6 +283,21 @@ span.prefix_show {
   text-align: center;
 }
 
+.android_contact .settings {
+  color: #FFF;
+}
+
+.settings .set{
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.settings .contact_us{
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 /***** Media Quries *****/
 @media only screen and (max-width: 1366px) {
   .android_wrap{
