@@ -63,7 +63,7 @@ class Learning
     self.answer_number = standard_answer.count
     self.right_answer_number = 0
     self.time_spent = (Time.now - self.question.answer_times.where(user: self.user).first.begin_time).to_i
-    (0..answer_number-1).each {|i| self.right_answer_number += 1 if standard_answer[i] == my_answer[i]}
+    (0..answer_number-1).each {|i| self.right_answer_number += 1 if standard_answer[i] == (my_answer[i] || "").gsub(' ','')}
     self.score = self.right_answer_number*2 - self.answer_number
   end
 
