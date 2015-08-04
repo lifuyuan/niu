@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api do
     post 'users/sign_in' => 'sessions#create'
+    post 'users/code' => 'sessions#createcode'
     post 'users/sign_up' => 'registrations#create'
   end
 

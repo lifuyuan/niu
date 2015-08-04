@@ -1,3 +1,4 @@
+require 'net/http'
 class Api::SessionsController < ApplicationController
 # before_filter :configure_sign_in_params, only: [:create]
 
@@ -25,6 +26,26 @@ class Api::SessionsController < ApplicationController
           render json: {error: {status:-1}}
         }
       end
+    end
+  end
+
+  # POST /user/code
+  def createcode
+    code = rand(9999).to_s
+    logger.info "#{params[:phone]}"
+    url = "http://yunpian.com/v1/sms/send.json"
+    res = Net::HTTP.post_form(URI.parse(url), apikey: "c03c12c5190d7d8d5af68d294cd97b1a", mobile: "#{params[:phone]}", text: "【喜点科技】您的验证码为#{code}，在30分钟内有效。如非本人操作，请忽略本短信。")
+    logger.info res.body
+    logger.info res.code
+    if res.code == "200"
+      result = JSON.parse(res.body)
+      if result["code"] == 0
+        render json: {code:code}
+      else
+        render json: {error: {status:-1}}
+      end
+    else
+      render json: {error: {status:-1}}
     end
   end
 
