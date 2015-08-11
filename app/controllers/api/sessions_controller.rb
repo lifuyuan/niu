@@ -58,6 +58,15 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  # GET /get_version
+  def get_version
+    if apk_version = ApkVersion.desc(:created_at).first
+      render json: {version: apk_version.version}
+    else
+      render json: {version: "1.0"}
+    end
+  end
+
   # DELETE /resource/sign_out
   #注销就是更换用户token
   def destroy

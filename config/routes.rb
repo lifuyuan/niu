@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post 'users/code' => 'sessions#createcode'
     post 'users/tokenverify' => 'sessions#tokenverify'
     post 'users/sign_up' => 'registrations#create'
+    get 'get_version' => 'sessions#get_version'
   end
 
   namespace :android do
