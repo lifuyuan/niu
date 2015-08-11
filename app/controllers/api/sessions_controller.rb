@@ -49,6 +49,15 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  # POST /user/tokenverify
+  def tokenverify
+    if User.where(authentication_token: params[:token]).first.nil?
+      render json: {result: false}
+    else
+      render json: {result: true}
+    end
+  end
+
   # DELETE /resource/sign_out
   #注销就是更换用户token
   def destroy

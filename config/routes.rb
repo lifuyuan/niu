@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :api do
     post 'users/sign_in' => 'sessions#create'
     post 'users/code' => 'sessions#createcode'
+    post 'users/tokenverify' => 'sessions#tokenverify'
     post 'users/sign_up' => 'registrations#create'
   end
 
