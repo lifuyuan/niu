@@ -17,6 +17,7 @@ class Android::LearningsController < ApplicationController
         AnswerTime.create(user: @user, question: @question, begin_time: Time.now)
       end
     end
+    @ylearning = @user.learnings.where(learning_date: "#{(Time.now-1.day).strftime("%Y%m%d")}", difficulty: @difficulty).first
     render(:layout => "layouts/android")
   end
 

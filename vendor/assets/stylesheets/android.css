@@ -231,6 +231,14 @@
   text-align: center;
 }
 
+.like_table .rank {
+  color: #ff5f5e;
+  margin-bottom: 15px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .nt {
   margin-top: 40px;
 }

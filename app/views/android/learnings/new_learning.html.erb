@@ -26,6 +26,11 @@
       </span>
     <% end %>
   </div>
+  <% unless @ylearning.nil?%>
+    <div class="rank">
+      昨日排名: <%=@ylearning.ranking%>
+    </div>
+  <% end %>
   <% if @question.nil? %>
     <p>亲，当前难度等级还没有设置题目哦，你可以通过点击对应难度等级的五角星来调整难度等级!</p>
   <% else %>
