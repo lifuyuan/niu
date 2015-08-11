@@ -306,6 +306,16 @@ span.prefix_show {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.settings .learn_record{
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.settings .quit_app{
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 /***** Media Quries *****/
 @media only screen and (max-width: 1366px) {
   .android_wrap{
