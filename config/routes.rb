@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'apk/download'
+  get 'apk/upgrade'
 
   devise_for :users
   namespace :api do
