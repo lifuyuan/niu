@@ -1,4 +1,3 @@
-<h3>创建题目</h3>
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -31,7 +30,7 @@
     <%= f.text_field :answer, placeholder: "请将答案按顺序用竖线“|”分割，例如：iver|and" %>
   </div>
   <div>
-    <%= f.submit :创建 %>
+    <%= f.submit :提交 %>
   </div>
 <% end %>
 

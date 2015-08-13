@@ -29,6 +29,10 @@ class Question
     content_array.join("<input name='answer[]' type='text' style='display:inline;padding-bottom: 3px;padding-left: 0px;padding-right: 0px;width: 67px;border-top: none;border-left: none;border-right: none;height: 5px;border-bottom-color: #9ce159;background: transparent; box-shadow: none;'>")
   end
 
+  def can_edit?
+    (self.show_date <=> Date.parse("#{Time.now.strftime("%Y-%m-%d")} 00:00:00 UTC") ) == 1
+  end
+
 	def all_in_one
 		if content.present? && content.scan(/[\w]_/).count == 0
 			errors.add(:content, "您输入的题目有误，没有需要学生输入的单词！")

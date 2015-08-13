@@ -34,7 +34,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    unless @question.can_edit?
+      redirect_to questions_path, notice: "只能修改今天之后的题目" and return
+    end
     @question.update(question_params)
+    flash[:notice] = "题目修改成功"
     respond_with(@question)
   end
 
