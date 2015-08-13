@@ -28,7 +28,7 @@
   </div>
   <% unless @ylearning.nil?%>
     <div class="rank">
-      昨日排名: <%=@ylearning.ranking%>
+      昨日排名: <%=@ylearning.current_ranking%>
     </div>
   <% end %>
   <% if @question.nil? %>
