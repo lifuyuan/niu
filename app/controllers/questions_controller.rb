@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
       @average_accuracy_one = "0/0"
       @average_time_one = "00:00"
     else
-      @average_accuracy_one = "#{Learning.where(learning_date: @show_date, difficulty: "one").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "one").count }/#{Learning.where(learning_date: @show_date, difficulty: "one").first.answer_number}"
+      @average_accuracy_one = "#{(Learning.where(learning_date: @show_date, difficulty: "one").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "one").count).round(2) }/#{Learning.where(learning_date: @show_date, difficulty: "one").first.answer_number}"
       avr_time = Learning.where(learning_date: @show_date, difficulty: "one").sum{|l| l.time_spent}/Learning.where(learning_date: @show_date, difficulty: "one").count
       count_h = avr_time.to_i/3600
       count_m = (avr_time - 3600*count_h).to_i/60
@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
       @average_accuracy_two = "0/0"
       @average_time_two = "00:00"
     else
-      @average_accuracy_two = "#{Learning.where(learning_date: @show_date, difficulty: "two").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "two").count }/#{Learning.where(learning_date: @show_date, difficulty: "two").first.answer_number}"
+      @average_accuracy_two = "#{(Learning.where(learning_date: @show_date, difficulty: "two").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "two").count).round(2) }/#{Learning.where(learning_date: @show_date, difficulty: "two").first.answer_number}"
       avr_time = Learning.where(learning_date: @show_date, difficulty: "two").sum{|l| l.time_spent}/Learning.where(learning_date: @show_date, difficulty: "two").count
       count_h = avr_time.to_i/3600
       count_m = (avr_time - 3600*count_h).to_i/60
@@ -92,7 +92,7 @@ class QuestionsController < ApplicationController
       @average_accuracy_three = "0/0"
       @average_time_three = "00:00"
     else
-      @average_accuracy_three = "#{Learning.where(learning_date: @show_date, difficulty: "three").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "three").count }/#{Learning.where(learning_date: @show_date, difficulty: "three").first.answer_number}"
+      @average_accuracy_three = "#{(Learning.where(learning_date: @show_date, difficulty: "three").sum{|l| l.right_answer_number}.to_f/Learning.where(learning_date: @show_date, difficulty: "three").count).round(2) }/#{Learning.where(learning_date: @show_date, difficulty: "three").first.answer_number}"
       avr_time = Learning.where(learning_date: @show_date, difficulty: "three").sum{|l| l.time_spent}/Learning.where(learning_date: @show_date, difficulty: "three").count
       count_h = avr_time.to_i/3600
       count_m = (avr_time - 3600*count_h).to_i/60
