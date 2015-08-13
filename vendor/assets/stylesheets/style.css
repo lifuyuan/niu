@@ -1270,6 +1270,13 @@ span.next:hover {
     padding-top: 4px;
   }
 
+.text-center {
+  text-align: center;
+}
+.tr-color {
+  background: #fff;
+}
+
 
 
 table {

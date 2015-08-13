@@ -1,0 +1,516 @@
+<%= form_tag("/questions/show_statistics", :method => "post") do %>
+
+  <div class="book_date btm">
+    <h4>查询日期：</h4>
+    <%= text_field_tag('show_date', @show_date, class: "date") %>
+    <%=submit_tag( "查询" )%>
+  </div>
+
+<% end %>
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+       <th class="text-center" colspan="2">下载app人数统计</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center">
+        下载app人数
+      </td>
+      <td class="text-center">
+        <%=ApkDownload.between(created_at: @show_date..@next_date).count%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+       <th class="text-center" colspan="4">注册app人数统计</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        注册app人数
+      </td>
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        <%=User.between(created_at: @show_date..@next_date).count%>
+      </td>
+      <td class="text-center">
+        六年级注册app人数
+      </td>
+      <td class="text-center">
+        <%=User.between(created_at: @show_date..@next_date).where(grade: "6").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        七年级注册app人数
+      </td>
+      <td class="text-center">
+        <%=User.between(created_at: @show_date..@next_date).where(grade: "7").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        八年级注册app人数
+      </td>
+      <td class="text-center">
+        <%=User.between(created_at: @show_date..@next_date).where(grade: "8").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        九年级注册app人数
+      </td>
+      <td class="text-center">
+        <%=User.between(created_at: @show_date..@next_date).where(grade: "9").count%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+       <th class="text-center" colspan="4">按年级统计答题人数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        答题人数
+      </td>
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        <%=Learning.where(learning_date: @show_date).count%>
+      </td>
+      <td class="text-center">
+        六年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        七年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        八年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        九年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").count%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+      <th class="text-center" colspan="6">按星级统计答题人数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        一星级答题人数
+      </td>
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        <%=Learning.where(learning_date: @show_date, difficulty: "one").count%>
+      </td>
+      <td class="text-center">
+        一星级六年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6", difficulty: "one").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        一星级七年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7", difficulty: "one").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        一星级八年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8", difficulty: "one").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        一星级九年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9", difficulty: "one").count%>
+      </td>
+    </tr>
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        二星级答题人数
+      </td>
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        <%=Learning.where(learning_date: @show_date, difficulty: "two").count%>
+      </td>
+      <td class="text-center">
+        二星级六年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6", difficulty: "two").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        二星级七年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7", difficulty: "two").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        二星级八年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8", difficulty: "two").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        二星级九年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9", difficulty: "two").count%>
+      </td>
+    </tr>
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        三星级答题人数
+      </td>
+      <td class="text-center" rowspan="4" style="vertical-align: middle;">
+        <%=Learning.where(learning_date: @show_date, difficulty: "three").count%>
+      </td>
+      <td class="text-center">
+        三星级六年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6", difficulty: "three").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        三星级七年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7", difficulty: "three").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        三星级八年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8", difficulty: "three").count%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        三星级九年级答题人数
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9", difficulty: "three").count%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+      <th class="text-center" colspan="6">按时间统计答题人数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center" rowspan="5" style="vertical-align: middle;">
+        六年级
+      </td>
+      <td class="text-center">
+        19:00之前答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").between(learning_hour: 0..18).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "6").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        19:00〜20:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").between(learning_hour: 19..19).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "6").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        20:00〜21:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").between(learning_hour: 20..20).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "6").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        21:00〜22:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").between(learning_hour: 21..21).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "6").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        22:00之后答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "6").between(learning_hour: 22..24).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "6").count.to_s%>
+      </td>
+    </tr>
+
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="5" style="vertical-align: middle;">
+        七年级
+      </td>
+      <td class="text-center">
+        19:00之前答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").between(learning_hour: 0..18).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "7").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        19:00〜20:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").between(learning_hour: 19..19).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "7").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        20:00〜21:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").between(learning_hour: 20..20).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "7").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        21:00〜22:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").between(learning_hour: 21..21).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "7").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        22:00之后答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "7").between(learning_hour: 22..24).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "7").count.to_s%>
+      </td>
+    </tr>
+
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="5" style="vertical-align: middle;">
+        八年级
+      </td>
+      <td class="text-center">
+        19:00之前答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").between(learning_hour: 0..18).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "8").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        19:00〜20:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").between(learning_hour: 19..19).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "8").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        20:00〜21:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").between(learning_hour: 20..20).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "8").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        21:00〜22:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").between(learning_hour: 21..21).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "8").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        22:00之后答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "8").between(learning_hour: 22..24).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "8").count.to_s%>
+      </td>
+    </tr>
+
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="5" style="vertical-align: middle;">
+        九年级
+      </td>
+      <td class="text-center">
+        19:00之前答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").between(learning_hour: 0..18).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "9").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        19:00〜20:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").between(learning_hour: 19..19).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "9").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        20:00〜21:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").between(learning_hour: 20..20).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "9").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        21:00〜22:00答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").between(learning_hour: 21..21).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "9").count.to_s%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        22:00之后答题
+      </td>
+      <td class="text-center">
+        <%=Learning.where(learning_date: @show_date, grade: "9").between(learning_hour: 22..24).count.to_s+" / "+Learning.where(learning_date: @show_date, grade: "9").count.to_s%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr style="background: #228AC6">
+      <th class="text-center" colspan="3">统计准确率及用时</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-color">
+      <td class="text-center" rowspan="2" style="vertical-align: middle;">
+        一星级
+      </td>
+      <td class="text-center">
+        平均准确率
+      </td>
+      <td class="text-center">
+        <%=@average_accuracy_one%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        平均用时
+      </td>
+      <td class="text-center">
+        <%=@average_time_one%>
+      </td>
+    </tr>
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="2" style="vertical-align: middle;">
+        二星级
+      </td>
+      <td class="text-center">
+        平均准确率
+      </td>
+      <td class="text-center">
+        <%=@average_accuracy_two%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        平均用时
+      </td>
+      <td class="text-center">
+        <%=@average_time_two%>
+      </td>
+    </tr>
+
+    <tr class="tr-color">
+      <td class="text-center" rowspan="2" style="vertical-align: middle;">
+        三星级
+      </td>
+      <td class="text-center">
+        平均准确率
+      </td>
+      <td class="text-center">
+        <%=@average_accuracy_three%>
+      </td>
+    </tr>
+    <tr class="tr-color">
+      <td class="text-center">
+        平均用时
+      </td>
+      <td class="text-center">
+        <%=@average_time_three%>
+      </td>
+    </tr>
+  </tbody>
+</table>

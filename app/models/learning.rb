@@ -13,6 +13,8 @@ class Learning
   field :score, type: Integer
   field :ranking, type: String
   field :is_favorite, type: String
+  field :learning_hour, type: Integer
+  field :grade, type: String
 
   def to_html
     content = self.question.content
@@ -58,6 +60,7 @@ class Learning
   before_create do
     self.difficulty = self.question.difficulty
     self.learning_date = Time.now
+    self.learning_hour = Time.now.strftime("%H").to_i
     standard_answer = self.question.answer.split("|")
     my_answer = self.answer.split("|")
     self.answer_number = standard_answer.count
@@ -69,7 +72,9 @@ class Learning
 
   after_create do 
     self.user.update_attributes(score: self.user.score || 0 + self.score)
-    self.update_attributes(ranking: self.calc_ranking)
+    self.ranking = self.calc_ranking
+    self.grade = self.user.grade
+    self.save
   end
 
   def calc_ranking

@@ -57,6 +57,7 @@
 							<%=link_to "创建题目" , new_question_url, onclick: "location.replace(http://localhost:5000/questions/new);" %></li>
 							<li><a href="/questions">已创建题目</a></li>
 							<li><a href="/questions/show_questions">模拟做题</a></li>
+							<li><a href="/questions/show_statistics">每日统计</a></li>
 							<% if user_signed_in? %>
 							<li><a href="/users/edit">修改密码</a></li>
 							<li><%= link_to('注销', destroy_user_session_path, :method => :delete) %></li>

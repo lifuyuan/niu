@@ -22,3 +22,7 @@
 $(function() {
 	$( "#datepicker,#question_show_date" ).datepicker();
 });
+
+$(function() {
+	$( "#datepicker,#show_date" ).datepicker();
+});

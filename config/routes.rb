@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :learnings
     collection do
       get 'show_questions'
+      get 'show_statistics'
+      post 'show_statistics'
     end
   end
 
