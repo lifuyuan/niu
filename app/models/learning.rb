@@ -35,7 +35,7 @@ class Learning
     my_answer = self.answer.split("|")
     new_content = content_array.join("___")
     (0..answer_number-1).each do |i|
-      if my_answer[i] == standard_answer[i]
+      if (my_answer[i] || "").gsub(' ','') == standard_answer[i]
         new_content.sub!("___", "<u style='color: #9ce159;'>#{my_answer[i]}</u>")
       else
         new_content.sub!("___", "<u style='color: #9ce159;'>#{my_answer[i]}</u><span style='color: red; display:inline;'>[#{standard_answer[i]}]</span>")
