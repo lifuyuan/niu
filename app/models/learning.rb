@@ -71,7 +71,7 @@ class Learning
   end
 
   after_create do 
-    self.user.update_attributes(score: self.user.score || 0 + self.score)
+    #self.user.update_attributes(score: self.user.score || 0 + self.score)
     self.ranking = self.calc_ranking
     self.grade = self.user.grade
     self.save
